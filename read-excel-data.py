@@ -4,13 +4,13 @@ from openpyxl import load_workbook
 data_excel = load_workbook(filename='data-invoice.xlsx')
 sheet_data = data_excel.active
 
-count = len(sheet_data['A'])
+count = len(sheet_data['A']) # มีจำนวนกี่แถว
 print(count)
 
-rows = []
+rows = [] # สร้างลิสต์เพื่อเก็บข้อมูลแถว
 
 for i in range(2,count+1):
-    datalist = []
+    datalist = [] # แถว 1 แถว
     for d in sheet_data[i]:
         datalist.append(d.value)
         #print(datalist)
@@ -19,7 +19,7 @@ for i in range(2,count+1):
 
 print(len(rows))
 
-# loop เพื่อสร้างกลุ่ม IV 
+# loop เพื่อสร้างกลุ่ม IV ว่ามีเลข IV กี่ตัว
 rows_dict = {}
 for r in rows:
     if r[4] not in rows_dict:
